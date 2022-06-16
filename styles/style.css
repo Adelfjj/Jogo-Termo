@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,html{
+    font-family: sans-serif;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: cadetblue;
+}
+.palavra{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+.letra{
+   height: 50px;
+   width: 50px;
+   border: 3px solid rgb(50, 114, 117);
+   border-radius: 7px;
+   cursor: pointer;
+   font-size: 2.5rem;
+   color: white;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 45px;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.palavra:not(.palavra.active) .letra{
+    background-color: rgb(50, 114, 117);
+    cursor:default;
+}
+.letra:focus{
+    outline: none;
+    border-bottom: 5px solid rgb(50, 114, 117);
+    border-radius: 7px;
+}
+.letra.contem:focus{
+    outline: none;
+    border-bottom: none;
+    border-radius: 7px;
+}
+.letra.correto:focus{
+    outline: none;
+    border-bottom: none;
+    border-radius: 7px;
+}
+.contem{
+    border-color: #d3ad69;
+    background-color: #d3ad69;
+}
+.correto{
+    border-color: #3aa394;
+    background-color: #3aa394;
+}
