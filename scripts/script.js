@@ -1,15 +1,17 @@
+import palavras from './data.js';
+
 let item = 0;
 let linha = 0;
 let palavra = document.querySelectorAll('.palavra');
-
-word = "SAUDE";
 var inputLetra = [];
+var word;
 
 window.onload = function(){
     startGame();
     palavra[linha].children[item].focus();
 };
 const startGame = () =>{
+    word = sortearPalavra();
     document.addEventListener("keyup", (e) =>{
         if(ehLetra(e)){
             let letra = palavra[linha].children[item];
@@ -23,9 +25,9 @@ const startGame = () =>{
     });
 };
 const inserirLetra = (letra, e) =>{
-    if(item < 5){
+    if(item < 5 && linha < 5){
         letra.textContent = e.key;
-        inputLetra.push(e.key.toUpperCase());
+        inputLetra.push(e.key);
         item++;
         focar();
     }
@@ -60,10 +62,12 @@ const ehLetra = (e) =>{
     }
 };
 const proxima = () =>{
-    linha++;
-    item = 0;
-    palavra[linha].classList.add("active");
-    inputLetra = [];
+    if(linha < 4){
+        linha++;
+        item = 0;
+        palavra[linha].classList.add("active");
+        inputLetra = [];
+    }
 }
 
 const focar = () =>{
@@ -71,4 +75,9 @@ const focar = () =>{
         let itemFoco = palavra[linha].children[item];
         itemFoco.focus();
     }
+}
+
+const sortearPalavra = () =>{
+    let sorteada = palavras[Math.floor(Math.random()*palavras.length)];
+    return sorteada;
 }

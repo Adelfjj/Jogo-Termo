@@ -44,12 +44,7 @@ section{
     border-bottom: 5px solid rgb(50, 114, 117);
     border-radius: 7px;
 }
-.letra.contem:focus{
-    outline: none;
-    border-bottom: none;
-    border-radius: 7px;
-}
-.letra.correto:focus{
+.letra.contem:focus,.letra.correto:focus{
     outline: none;
     border-bottom: none;
     border-radius: 7px;
