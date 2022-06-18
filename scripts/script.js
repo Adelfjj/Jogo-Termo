@@ -1,8 +1,13 @@
 import palavras from './data.js';
 
+let fechar = document.querySelector('#fechar');
+let dialogo = document.querySelector('.dialogo');
+let regras = document.querySelector('.regras');
+let palavra = document.querySelectorAll('.palavra');
+
 let item = 0;
 let linha = 0;
-let palavra = document.querySelectorAll('.palavra');
+
 var inputLetra = [];
 var word;
 
@@ -81,3 +86,11 @@ const sortearPalavra = () =>{
     let sorteada = palavras[Math.floor(Math.random()*palavras.length)];
     return sorteada;
 }
+
+fechar.addEventListener("click",()=>{
+    dialogo.style.display = "none";
+});
+
+regras.addEventListener("click", () =>{
+    dialogo.style.display = "flex";
+});

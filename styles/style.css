@@ -2,19 +2,60 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
 body,html{
     font-family: sans-serif;
+    background-color: cadetblue;
+}
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+header nav{
+    max-width: 800px;
+    width: 100%;
+    margin-top: 15px;
+}
+header nav ul{
+    display:flex ;
+    width: 100%;
+    justify-content: space-around;
+}
+header nav ul li{
+    flex: 1;
+    font-size: 13px;
+    text-align: center;
+    line-height: 30px;
+    justify-content: stretch;
+}
+header nav ul li a{
+    color: white;
+    width: 50px;
+    padding: 5px 10px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+header nav ul li a:hover{
+    border: 2px solid rgb(50, 114, 117);
+}
+header nav ul li h1{
+    font-size: 25px;
+    color: rgb(211, 210, 210);
+    font-weight: bold;
 }
 section{
+    max-width: 800px;
+    margin: 55px auto;
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    background-color: cadetblue;
 }
 .palavra{
     display: flex;
@@ -50,10 +91,78 @@ section{
     border-radius: 7px;
 }
 .contem{
-    border-color: #d3ad69;
+    border-color: #d3ad69 !important;
     background-color: #d3ad69;
 }
 .correto{
-    border-color: #3aa394;
+    border-color: #3aa394 !important;
     background-color: #3aa394;
+}
+.dialogo{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tutorial{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    max-width: 25rem;
+    background-color: white;
+    border-radius: 15px;
+    opacity: 1;
+    padding: 1.5rem 1rem;
+    z-index: 12;
+    gap: 15px;
+    color: rgb(107 114 128);
+}
+.tutorial .topo{
+    display: flex;
+    width: 100%;
+    max-width: 28rem;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+.tutorial .topo span{
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.dialogo-fundo{
+    position: fixed;
+    background-color: rgb(107,114,128,0.75);
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.grupo{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 10px 40px;
+    color: black;
+}
+.grupo span{
+    flex: 1;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 8px;
 }
