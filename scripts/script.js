@@ -62,7 +62,7 @@ const comparaPalavra = () =>{
 };
 
 const ehLetra = (e) =>{
-    if(item <= 5 && "KeyA" <= e.code && e.code <= "KeyZ"){
+    if(item <= 5 && "KeyA" <= e.code && e.code <= "KeyZ" || e.code == "Semicolon"){
         return true;
     }
 };
