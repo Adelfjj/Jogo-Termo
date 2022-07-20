@@ -166,3 +166,16 @@ section{
     padding: 5px;
     border-radius: 8px;
 }
+.mensagem {
+    display: none;
+}
+.mensagem div{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+.mensagem h2{
+    text-align: center;
+}
