@@ -5,6 +5,7 @@ let dialogo = document.querySelector('.dialogo');
 let regras = document.querySelector('.regras');
 let palavra = document.querySelectorAll('.palavra');
 let resposta = document.querySelector(".mensagem div");
+let teclado = document.querySelectorAll("section#teclado span");
 
 let item = 0;
 let linha = 0;
@@ -57,10 +58,14 @@ const comparaPalavra = () =>{
         if(sorteada[index] == inputLetra[index]){
             let letra = palavra[linha].children[index];
             letra.classList.add("correto");
+            letraTeclado(inputLetra[index],"correto");
         }
         else if(sorteada.includes(inputLetra[index])){
             let letra = palavra[linha].children[index];
             letra.classList.add("contem");
+            letraTeclado(inputLetra[index],"contem");
+        }else{
+            letraTeclado(inputLetra[index],"excluir");
         }
     }
     proxima();
@@ -113,4 +118,12 @@ const mensagem = () =>{
 
 const removerAcentos = (s) => {
     return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+const letraTeclado = (letra, clas) => {
+    teclado.forEach(span => {
+        if(span.innerHTML == letra){
+           span.classList.add(`${clas}`);
+        }
+    });
 }
