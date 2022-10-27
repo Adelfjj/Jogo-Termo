@@ -106,7 +106,7 @@ section{
     right: 0;
     z-index: 10;
     text-align: center;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }

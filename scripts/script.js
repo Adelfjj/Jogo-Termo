@@ -16,6 +16,7 @@ var cAcento;
 var sAcento;
 
 window.onload = function(){
+    modalDialogo();
     startGame();
     palavra[linha].children[item].focus();
 };
@@ -23,6 +24,7 @@ const startGame = () =>{
     cAcento = sortearPalavra();
     sAcento = removerAcentos(cAcento);
     sorteada = sAcento.split("");
+
 
     document.addEventListener("keyup", (e) =>{
         if(ehLetra(e)){
@@ -54,21 +56,27 @@ const deletarLetra = () =>{
     }
 };
 const comparaPalavra = () =>{
-    for(let index = 0; index < 5;index++){
-        if(sorteada[index] == inputLetra[index]){
-            let letra = palavra[linha].children[index];
-            letra.classList.add("correto");
-            letraTeclado(inputLetra[index],"correto");
+    
+        for(let index = 0; index < 5;index++){
+            if(sorteada[index] == inputLetra[index]){
+                let letra = palavra[linha].children[index];
+                letra.classList.add("correto");
+                letraTeclado(inputLetra[index],"correto");
+            }
+            else if(sorteada.includes(inputLetra[index])){
+                let letra = palavra[linha].children[index];
+                letra.classList.add("contem");
+                letraTeclado(inputLetra[index],"contem");
+            }else{
+                letraTeclado(inputLetra[index],"excluir");
+            }
         }
-        else if(sorteada.includes(inputLetra[index])){
-            let letra = palavra[linha].children[index];
-            letra.classList.add("contem");
-            letraTeclado(inputLetra[index],"contem");
+
+        if(sorteada.join("") == inputLetra.join("")){
+            mensagem();
         }else{
-            letraTeclado(inputLetra[index],"excluir");
+            proxima();
         }
-    }
-    proxima();
 };
 
 const ehLetra = (e) =>{
@@ -96,6 +104,13 @@ const focar = () =>{
 
 const sortearPalavra = () =>{
     return palavras[Math.floor(Math.random()*palavras.length)];
+}
+
+const modalDialogo = () =>{
+   if(localStorage.length == 0){
+    dialogo.style.display = "flex";
+    localStorage.setItem("regras","visto");
+   }
 }
 
 fechar.addEventListener("click",()=>{
